@@ -1,7 +1,7 @@
 .brewery-container {
   display: flex;
   justify-content: center;
-  width: 80%; 
+  width: 80%;
   /* Width Originally not specified */
 }
 
@@ -13,7 +13,7 @@
   height: 80px;
   border-bottom: 1px solid white;
   width: 100%;
-  Width originally 900px;
+  /* Width originally 900px */
 }
 
 .brewery {
@@ -25,7 +25,7 @@
 
 .brewery h1 {
   font-size: 16px;
-  width: 150px;
+  width: 250px;
 }
 
 .brewery-data {
@@ -34,6 +34,15 @@
   justify-content: space-between;
   width: 100%;
 }
+
+#brewery-hours .hours-popup {
+  opacity: 0;
+}
+
+#brewery-hours:hover hours-popup {
+  opacity: 1;
+}
+
 .social-media-icons {
   width: 35px;
   display: flex;
