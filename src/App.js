@@ -184,7 +184,6 @@ function App() {
               facebook={brewery.facebook}
               website={brewery.website}
               phoneNumber={brewery.phoneNumber}
-            // open={true or false}
             />
           )
         })
