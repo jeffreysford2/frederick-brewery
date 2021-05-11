@@ -4,7 +4,13 @@ import './App.css';
 import { useState, useEffect } from 'react'
 const API_KEY = process.env.REACT_APP_API_KEY
 
-
+const socialMedia = {
+  //Rockwell
+  'ChIJwwuuG_PayYkR5J6gi168I5w': {
+    'instagram': 'https://www.instagram.com/rockwellbrewery/',
+    'facebook': 'https://www.facebook.com/rockwellbrewery'
+  }
+}
 
 
 // const breweries = [
@@ -155,9 +161,12 @@ function App() {
     setSearch(e.target.value)
   }
   console.log('breweries:', breweries)
-  const filteredBreweries = breweries.filter(brewery => (
+  let filteredBreweries = breweries.filter(brewery => (
     brewery.name.toLowerCase().includes(search.toLowerCase())
   ))
+
+
+
 
 
 
@@ -184,6 +193,7 @@ function App() {
               facebook={brewery.facebook}
               website={brewery.website}
               phoneNumber={brewery.phoneNumber}
+            // socialMedia={socialMedia.brewery.place_id}
             />
           )
         })

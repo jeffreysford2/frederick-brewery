@@ -39,14 +39,16 @@
   width: 30%;
 }
 .brewery-rating {
-  width: 15%;
+  width: 10%;
 }
 .brewery-open {
   color: green;
+  width: 8%;
 }
 
 .brewery-closed {
   color: red;
+  width: 8%;
 }
 
 .social-media-icons {
