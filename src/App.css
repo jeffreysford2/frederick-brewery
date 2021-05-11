@@ -15,11 +15,11 @@
 }
 
 .brewery-search {
-  margin-top: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 25px;
 }
 
 .brewery-text {

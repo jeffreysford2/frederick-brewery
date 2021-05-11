@@ -1,4 +1,5 @@
 import Brewery from './components/Brewery'
+import BreweryHeader from './components/BreweryHeader'
 import axios from 'axios'
 import './App.css';
 import { useState, useEffect } from 'react'
@@ -179,6 +180,7 @@ function App() {
           <input type="text" placeholder="Search" className="brewery-input" onChange={handleChange} />
         </form>
       </div>
+      <BreweryHeader />
       {
         filteredBreweries.map(brewery => {
           return (

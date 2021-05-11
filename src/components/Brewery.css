@@ -5,6 +5,14 @@
   /* Width Originally not specified */
 }
 
+.brewery-header-container {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  height: 40px;
+  /* Width Originally not specified */
+}
+
 .brewery-row {
   display: flex;
   flex-direction: row;
@@ -13,6 +21,18 @@
   height: 80px;
   border-bottom: 1px solid white;
   width: 100%;
+  /* Width originally 900px */
+}
+
+.brewery-header-row {
+  display: flex;
+  flex-direction: row;
+  justify-items: start;
+  align-items: center;
+  height: 30px;
+  border-bottom: 1px solid white;
+  width: 100%;
+  padding-bottom: 0px;
   /* Width originally 900px */
 }
 
@@ -51,11 +71,15 @@
   width: 8%;
 }
 
+.brewery-status {
+  width: 8%;
+}
+
 .social-media-icons {
-  width: 35px;
+  width: 95px;
   display: flex;
   text-align: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .brewery-phoneNumber {
