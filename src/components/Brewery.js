@@ -1,7 +1,6 @@
 
 import './Brewery.css'
 const Brewery = (props) => {
-    console.log(`social media: ${props.socialMedia}`)
 
     const isOpen = () => {
         if (props.open_now) {
@@ -9,13 +8,6 @@ const Brewery = (props) => {
         }
         return null
     }
-    const hasInstagram = () => {
-        if (props.socialMedia.breweryId.instagram) {
-            console.log('insta!')
-        }
-    }
-    console.log(props)
-
 
     return (
         <div className="brewery-container">
@@ -34,11 +26,17 @@ const Brewery = (props) => {
                     <p className="brewery-address">{props.address}</p>
                     <a href={props.website} className="brewery-website">Visit website</a>
                     <p className="social-media-icons">
-                        <a href="#" className="fa fa-facebook"></a>
-                        <a href={props.instagram} className="fa fa-instagram"></a>
+                        {props.facebook !== undefined ? (
+                            <a href={props.facebook} target="_blank" rel="noreferrer" className="fa fa-facebook"></a>
+                        ) : (
+                            <a></a>
+                        )}
+                        {props.instagram !== undefined ? (
+                            <a href={props.instagram} target="_blank" rel="noreferrer" className="fa fa-instagram"></a>
+                        ) : (
+                            <a></a>
+                        )}
                     </p>
-
-                    {/* <p>{breweryClosed ? Open : Closed}</p> */}
                 </div>
             </div>
 
