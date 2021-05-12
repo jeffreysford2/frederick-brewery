@@ -1,23 +1,51 @@
 import Brewery from './Brewery.css'
 
-const BreweryHeader = () => {
+const BreweryHeader = (props) => {
+
+    const handleClickNameDesc = (e) => {
+        e.preventDefault()
+        console.log('clicked')
+        props.setSort(['name', 'desc'])
+    }
+    const handleClickNameAsc = (e) => {
+        e.preventDefault()
+        console.log('clicked')
+        props.setSort(['name', 'asc'])
+    }
+    const handleClickOpen = (e) => {
+        e.preventDefault()
+        console.log('clicked')
+        props.setSort(['open_now', 'asc'])
+    }
+    const handleClickRating = (e) => {
+        e.preventDefault()
+        console.log('clicked')
+        props.setSort(['rating', 'desc'])
+    }
 
     return (
-        <div className="brewery-header-container">
-            <div className="brewery-header-row">
+        <div className="brewery-container" id="header">
+            <div className="brewery-row">
                 <div className="brewery">
-                    <h1>Brewery</h1>
+                    <button onClick={handleClickNameDesc}>&uarr;</button>
+                    <button onClick={handleClickNameAsc}>&darr;</button>
                 </div>
                 <div className="brewery-data">
                     {/* <p className="brewery-phoneNumber">{props.phoneNumber}</p> */}
+                    <div className="brewery-open">
+                        <button onClick={handleClickNameDesc}>&darr;</button>
+                    </div>
+                    <div className="brewery-rating">
+                        <button onClick={handleClickRating}>&darr;</button>
+                    </div>
 
-                    <p className="brewery-status">Status</p>
-                    <p className="brewery-rating">Rating</p>
-                    <p className="brewery-address">Address</p>
-                    <p className="brewery-website">Website</p>
-                    <p className="social-media-icons">
-                        Social Media
-                    </p>
+                    <div className="brewery-rating">
+                        <button onClick={handleClickRating}>&darr;</button>
+                    </div>
+
+                    <p className="brewery-address"></p>
+                    {/* <p className="brewery-website"></p> */}
+                    <p className="social-media-icons"></p>
 
                     {/* <p>{breweryClosed ? Open : Closed}</p> */}
                 </div>

@@ -21,7 +21,7 @@
   flex-wrap: wrap;
   align-items: center;
   min-height: 80px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid black;
   width: 100%;
 
   /* Width originally 900px */
@@ -33,7 +33,7 @@
   justify-items: start;
   align-items: center;
   height: 30px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid black;
   width: 100%;
   padding-bottom: 0px;
   /* Width originally 900px */
@@ -56,18 +56,10 @@
 .brewery-data {
   display: flex;
   text-align: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: space-between;
   /* flex-grow: 2; */
   width: 70%;
-}
-@media (max-width: 800px) {
-  .brewery-data {
-    flex-direction: column;
-    align-items: center;
-    height: 200px;
-    justify-content: space-around;
-  }
 }
 
 .brewery-address {
@@ -103,4 +95,24 @@
 
 .brewery-phoneNumber {
   width: 200px;
+}
+
+@media (max-width: 600px) {
+  .brewery-data {
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    justify-content: space-around;
+  }
+  .brewery-address {
+    width: 100%;
+  }
+  #header {
+    display: none;
+  }
+}
+@media (max-width: 840px) {
+  .brewery-website {
+    display: none;
+  }
 }

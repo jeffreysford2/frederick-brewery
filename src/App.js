@@ -113,6 +113,7 @@ const socialMedia = {
 function App() {
   const [breweries, setBreweries] = useState([]);
   const [search, setSearch] = useState('')
+  const [[column, direction], setSort] = useState(['name', 'asc'])
 
   // Note: the empty deps array [] means
   // this useEffect will run once
@@ -168,7 +169,7 @@ function App() {
     };
   }
 
-  const filteredAndSortedBreweries = filteredBreweries.sort(compareValues('name', 'asc'))
+  const filteredAndSortedBreweries = filteredBreweries.sort(compareValues(column, direction))
   console.log(filteredAndSortedBreweries)
 
 
@@ -181,7 +182,7 @@ function App() {
           <input type="text" placeholder="Search" className="brewery-input" onChange={handleChange} />
         </form>
       </div>
-      {/* <BreweryHeader /> */}
+      <BreweryHeader setSort={setSort} />
       {
         filteredAndSortedBreweries.map(brewery => {
           return (
@@ -196,6 +197,7 @@ function App() {
               facebook={brewery.facebook}
               website={brewery.website}
               phoneNumber={brewery.phoneNumber}
+              location={brewery.geometry.location.lat}
             // socialMedia={socialMedia.brewery.place_id}
             />
           )
