@@ -1,9 +1,11 @@
 import Brewery from './components/Brewery'
 import BreweryHeader from './components/BreweryHeader'
+import GeoLocation from './components/GeoLocation'
 import axios from 'axios'
 import './App.css';
 import { useState, useEffect } from 'react'
 const API_KEY = process.env.REACT_APP_API_KEY
+
 
 const socialMedia = {
   //Rockwell
@@ -114,6 +116,7 @@ function App() {
   const [breweries, setBreweries] = useState([]);
   const [search, setSearch] = useState('')
   const [[column, direction], setSort] = useState(['name', 'asc'])
+  const location = GeoLocation();
 
   // Note: the empty deps array [] means
   // this useEffect will run once
@@ -137,8 +140,40 @@ function App() {
       breweries[i].instagram = socialMedia[breweryId].instagram
       breweries[i].facebook = socialMedia[breweryId].facebook
     }
+    console.log(location.coordinates.lat)
+    // if (location === undefined) {
+
+    // } else {
+    //   breweries[i].distance = getDistanceFromLatLonInMi(
+    //     breweries[i].geometrygeometry.location.lat,
+    //     breweries[i].geometrygeometry.location.lat,
+    //     JSON.stringify(location).coordinates.lat,
+    //     JSON.stringify(location).coordinates.lng
+    //   )
+    // }
+    console.log(breweries[i].distance)
     console.log(breweries[i].name, breweries[i].place_id)
   }
+
+  useEffect(() => {
+    console.log('in effect')
+    for (let i = 0; i < breweries.length; i++) {
+
+      console.log('hi', location.coordinates.lat)
+      console.log('location:', location)
+
+
+
+      breweries[i].distance = getDistanceFromLatLonInMi(
+        breweries[i].geometrygeometry.location.lat,
+        breweries[i].geometrygeometry.location.lat,
+        JSON.stringify(location).coordinates.lat,
+        JSON.stringify(location).coordinates.lng
+      )
+      console.log('changed!!!!', breweries[i].distance)
+    }
+
+  }, [])
 
   let filteredBreweries = breweries.filter(brewery => (
     brewery.name.toLowerCase().includes(search.toLowerCase())
@@ -169,6 +204,25 @@ function App() {
     };
   }
 
+  function getDistanceFromLatLonInMi(lat1, lon1, lat2, lon2) {
+    console.log('in formula')
+    var R = 6371; // Radius of the earth in km
+    var dLat = deg2rad(lat2 - lat1);  // deg2rad below
+    var dLon = deg2rad(lon2 - lon1);
+    var a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2)
+      ;
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    var d = R * c * 0.621371; // Distance in miles
+    return d;
+  }
+
+  function deg2rad(deg) {
+    return deg * (Math.PI / 180)
+  }
+
   const filteredAndSortedBreweries = filteredBreweries.sort(compareValues(column, direction))
   console.log(filteredAndSortedBreweries)
 
@@ -176,11 +230,15 @@ function App() {
   return (
 
     < div className="brewery-app" >
+
       <div className="brewery-search">
         <h1 className="brewery-text">Search for a brewery</h1>
         <form>
           <input type="text" placeholder="Search" className="brewery-input" onChange={handleChange} />
         </form>
+        <div>
+          {location.loaded ? JSON.stringify(location) : "Location data not available yet"}
+        </div>
       </div>
       <BreweryHeader setSort={setSort} />
       {
