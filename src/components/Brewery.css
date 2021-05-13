@@ -92,6 +92,9 @@
   text-align: center;
   justify-content: space-evenly;
 }
+a {
+  text-decoration: none;
+}
 
 .brewery-phoneNumber {
   width: 200px;

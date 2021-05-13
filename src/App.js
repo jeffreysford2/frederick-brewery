@@ -140,7 +140,7 @@ function App() {
       breweries[i].instagram = socialMedia[breweryId].instagram
       breweries[i].facebook = socialMedia[breweryId].facebook
     }
-    console.log(location.coordinates.lat)
+
     // if (location === undefined) {
 
     // } else {
@@ -151,29 +151,28 @@ function App() {
     //     JSON.stringify(location).coordinates.lng
     //   )
     // }
-    console.log(breweries[i].distance)
-    console.log(breweries[i].name, breweries[i].place_id)
+
   }
 
-  useEffect(() => {
-    console.log('in effect')
-    for (let i = 0; i < breweries.length; i++) {
+  // useEffect(() => {
+  //   console.log('in effect')
+  //   for (let i = 0; i < breweries.length; i++) {
 
-      console.log('hi', location.coordinates.lat)
-      console.log('location:', location)
+  //     console.log('hi', location.coordinates.lat)
+  //     console.log('location:', location)
 
 
 
-      breweries[i].distance = getDistanceFromLatLonInMi(
-        breweries[i].geometrygeometry.location.lat,
-        breweries[i].geometrygeometry.location.lat,
-        JSON.stringify(location).coordinates.lat,
-        JSON.stringify(location).coordinates.lng
-      )
-      console.log('changed!!!!', breweries[i].distance)
-    }
+  //     breweries[i].distance = getDistanceFromLatLonInMi(
+  //       breweries[i].geometry.location.lat,
+  //       breweries[i].geometry.location.lng,
+  //       JSON.stringify(location).coordinates.lat,
+  //       JSON.stringify(location).coordinates.lng
+  //     )
+  //     console.log('changed!!!!', breweries[i].distance)
+  //   }
 
-  }, [])
+  // }, [location])
 
   let filteredBreweries = breweries.filter(brewery => (
     brewery.name.toLowerCase().includes(search.toLowerCase())
@@ -236,9 +235,9 @@ function App() {
         <form>
           <input type="text" placeholder="Search" className="brewery-input" onChange={handleChange} />
         </form>
-        <div>
+        {/* <div>
           {location.loaded ? JSON.stringify(location) : "Location data not available yet"}
-        </div>
+        </div> */}
       </div>
       <BreweryHeader setSort={setSort} />
       {
