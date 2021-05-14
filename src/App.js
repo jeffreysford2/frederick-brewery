@@ -123,7 +123,7 @@ function App() {
   // similar to componentDidMount()
   useEffect(() => {
     axios
-      .get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.4143,-77.4105&radius=20000&keyword=brewery&key=${API_KEY}`)
+      .get(`https://corsanywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.4143,-77.4105&radius=20000&keyword=brewery&key=${API_KEY}`)
       .then(res => {
         setBreweries(res.data.results);
       })
