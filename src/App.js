@@ -1,10 +1,12 @@
 import Brewery from './components/Brewery'
 import BreweryHeader from './components/BreweryHeader'
 import GeoLocation from './components/GeoLocation'
+import Map from './components/Map'
 import axios from 'axios'
 import './App.css';
 import { useState, useEffect } from 'react'
 const API_KEY = process.env.REACT_APP_API_KEY
+
 
 
 const socialMedia = {
@@ -113,14 +115,23 @@ const socialMedia = {
 }
 
 function App() {
+  const [viewport, setViewport] = useState({
+    latitude: 39.414,
+    longitude: -77.410,
+    width: "800px",
+    height: "800px",
+    zoom: 8
+  });
   const [breweries, setBreweries] = useState([]);
   const [search, setSearch] = useState('')
   const [[column, direction], setSort] = useState(['name', 'asc'])
-  const location = GeoLocation();
+  // const [location, setLocation] = useState('');
 
-  // Note: the empty deps array [] means
-  // this useEffect will run once
-  // similar to componentDidMount()
+  // setLocation(GeoLocation())
+
+  const location = GeoLocation()
+
+
   useEffect(() => {
     axios
       .get(`https://corsanywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.4143,-77.4105&radius=20000&keyword=brewery&key=${API_KEY}`)
@@ -139,7 +150,13 @@ function App() {
     if (socialMedia[breweryId]) {
       breweries[i].instagram = socialMedia[breweryId].instagram
       breweries[i].facebook = socialMedia[breweryId].facebook
+
     }
+
+    // if (breweryId === 'ChIJdXekOBE1yIkRqM3b7TNZ3CU') {
+    //   breweries[i].opening_hours.open_now = true;
+    //   console.log(breweries[i].opening_hours.open_now)
+    // }
 
     // if (location === undefined) {
 
@@ -221,12 +238,13 @@ function App() {
   }
 
   const filteredAndSortedBreweries = filteredBreweries.sort(compareValues(column, direction))
+  console.log(breweries)
+
 
 
   return (
 
     < div className="brewery-app" >
-
       <div className="brewery-search">
         <h1 className="brewery-text">Search for a brewery</h1>
         <form>
@@ -236,28 +254,35 @@ function App() {
           {location.loaded ? JSON.stringify(location) : "Location data not available yet"}
         </div> */}
       </div>
-      <BreweryHeader setSort={setSort} />
-      {
-        filteredAndSortedBreweries.map(brewery => {
-          return (
-            <Brewery
-              key={brewery.place_id}
-              name={brewery.name.toUpperCase()}
-              address={brewery.vicinity}
-              rating={brewery.rating}
-              user_ratings_total={brewery.user_ratings_total}
-              open_now={brewery.opening_hours}
-              instagram={brewery.instagram}
-              facebook={brewery.facebook}
-              website={brewery.website}
-              phoneNumber={brewery.phoneNumber}
-              location={brewery.geometry.location.lat}
-            // socialMedia={socialMedia.brewery.place_id}
-            />
-          )
-        })
-      }
-    </div >
+
+      <Map
+        breweries={breweries}
+      />
+
+      <div className="brewery-info-container">
+        <BreweryHeader setSort={setSort} />
+        {
+          filteredAndSortedBreweries.map(brewery => {
+            return (
+              <Brewery
+                key={brewery.place_id}
+                name={brewery.name.toUpperCase()}
+                address={brewery.vicinity}
+                rating={brewery.rating}
+                user_ratings_total={brewery.user_ratings_total}
+                open_now={brewery.opening_hours}
+                instagram={brewery.instagram}
+                facebook={brewery.facebook}
+                website={brewery.website}
+                phoneNumber={brewery.phoneNumber}
+                location={brewery.geometry.location.lat}
+              // socialMedia={socialMedia.brewery.place_id}
+              />
+            )
+          })
+        }
+      </div >
+    </div>
   );
 }
 export default App;

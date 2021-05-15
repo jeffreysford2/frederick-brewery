@@ -2,7 +2,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: white;
   color: black;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -60,4 +59,12 @@ button:hover {
   width: 30px;
   border: 1px solid lightgreen;
   cursor: pointer;
+}
+
+.brewery-info-container {
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  /* Width Originally not specified */
 }

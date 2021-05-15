@@ -14,14 +14,15 @@ const BreweryHeader = (props) => {
     }
     const handleClickOpen = (e) => {
         e.preventDefault()
-        console.log('clicked')
-        props.setSort(['open_now', 'asc'])
+        console.log('clicked open')
+        props.setSort(['opening_hours.open_now', 'desc'])
     }
     const handleClickRating = (e) => {
         e.preventDefault()
         console.log('clicked')
         props.setSort(['rating', 'desc'])
     }
+
 
     return (
         <div className="brewery-container" id="header">
@@ -33,15 +34,15 @@ const BreweryHeader = (props) => {
                 <div className="brewery-data">
                     {/* <p className="brewery-phoneNumber">{props.phoneNumber}</p> */}
                     <div className="brewery-open">
-                        <button onClick={handleClickNameDesc}>&darr;</button>
+                        <button onClick={handleClickOpen}>&darr;</button>
                     </div>
                     <div className="brewery-rating">
                         <button onClick={handleClickRating}>&darr;</button>
                     </div>
 
-                    <div className="brewery-rating">
+                    {/* <div className="brewery-rating">
                         <button onClick={handleClickRating}>&darr;</button>
-                    </div>
+                    </div> */}
 
                     <p className="brewery-address"></p>
                     {/* <p className="brewery-website"></p> */}

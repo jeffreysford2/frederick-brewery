@@ -23,7 +23,7 @@ const Brewery = (props) => {
                         <p className="brewery-closed">closed</p>
                     )}
                     <p className="brewery-rating">{props.rating}/5.0</p>
-                    <p className="brewery-location">{Math.round(props.location)} mi</p>
+                    {/* <p className="brewery-location">{Math.round(props.location)} mi</p> */}
                     <p className="brewery-address">{props.address}</p>
                     {/* <a href={props.website} className="brewery-website">Visit website</a> */}
                     <p className="social-media-icons">
