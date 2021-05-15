@@ -61,10 +61,25 @@ button:hover {
   cursor: pointer;
 }
 
+.results-container {
+  display: flex;
+  width: 100%;
+}
+.map-container {
+  position: sticky;
+  top: 0px;
+  height: 100vh;
+}
+
+.sticky {
+  position: relative;
+  height: 100vh;
+}
+
 .brewery-info-container {
   justify-content: center;
   flex-direction: column;
-  width: 80%;
+  width: 60%;
   align-content: left;
   /* Width Originally not specified */
 }

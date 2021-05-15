@@ -1,7 +1,7 @@
 .brewery-container {
   display: flex;
   justify-content: center;
-  width: 80%;
+  width: 95%;
   align-self: center;
   margin: auto;
   /* Width Originally not specified */

@@ -254,34 +254,36 @@ function App() {
           {location.loaded ? JSON.stringify(location) : "Location data not available yet"}
         </div> */}
       </div>
-
-      <Map
-        breweries={filteredAndSortedBreweries}
-      />
-
-      <div className="brewery-info-container">
-        <BreweryHeader setSort={setSort} />
-        {
-          filteredAndSortedBreweries.map(brewery => {
-            return (
-              <Brewery
-                key={brewery.place_id}
-                name={brewery.name.toUpperCase()}
-                address={brewery.vicinity}
-                rating={brewery.rating}
-                user_ratings_total={brewery.user_ratings_total}
-                open_now={brewery.opening_hours}
-                instagram={brewery.instagram}
-                facebook={brewery.facebook}
-                website={brewery.website}
-                phoneNumber={brewery.phoneNumber}
-                location={brewery.geometry.location.lat}
-              // socialMedia={socialMedia.brewery.place_id}
-              />
-            )
-          })
-        }
-      </div >
+      <div className="results-container">
+        <div className="brewery-info-container">
+          <BreweryHeader setSort={setSort} />
+          {
+            filteredAndSortedBreweries.map(brewery => {
+              return (
+                <Brewery
+                  key={brewery.place_id}
+                  name={brewery.name.toUpperCase()}
+                  address={brewery.vicinity}
+                  rating={brewery.rating}
+                  user_ratings_total={brewery.user_ratings_total}
+                  open_now={brewery.opening_hours}
+                  instagram={brewery.instagram}
+                  facebook={brewery.facebook}
+                  website={brewery.website}
+                  phoneNumber={brewery.phoneNumber}
+                  location={brewery.geometry.location.lat}
+                // socialMedia={socialMedia.brewery.place_id}
+                />
+              )
+            })
+          }
+        </div >
+        <div className="map-container">
+          <Map
+            breweries={filteredAndSortedBreweries}
+          />
+        </div>
+      </div>
     </div>
   );
 }

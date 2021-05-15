@@ -5,8 +5,8 @@ const MAP_TOKEN = "pk.eyJ1IjoiamVmZnJleXNmb3JkMiIsImEiOiJja29wb3VpNG8wand3MzFtcH
 
 function Map(props) {
     const [viewport, setViewport] = useState({
-        width: '100vw',
-        height: 400,
+        width: '600px',
+        height: '100vh',
         latitude: 39.4143,
         longitude: -77.4105,
         zoom: 11
