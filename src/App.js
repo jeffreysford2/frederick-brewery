@@ -153,7 +153,6 @@ function App() {
     // }
 
   }
-
   // useEffect(() => {
   //   console.log('in effect')
   //   for (let i = 0; i < breweries.length; i++) {
@@ -179,7 +178,6 @@ function App() {
   ))
 
   function compareValues(key, order = 'asc') {
-    console.log('sorting!')
     return function innerSort(a, b) {
       if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
         // property doesn't exist on either object
@@ -223,7 +221,6 @@ function App() {
   }
 
   const filteredAndSortedBreweries = filteredBreweries.sort(compareValues(column, direction))
-  console.log(filteredAndSortedBreweries)
 
 
   return (

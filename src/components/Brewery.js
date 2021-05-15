@@ -9,8 +9,6 @@ const Brewery = (props) => {
         return null
     }
 
-    console.log(props.places_id)
-
     return (
         <div className="brewery-container">
             <div className="brewery-row">
