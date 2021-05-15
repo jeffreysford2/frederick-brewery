@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { useState } from 'react'
-import ReactMapGL, { Marker } from 'react-map-gl'
+import { useState, useEffect } from 'react'
+import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 const MAP_TOKEN = "pk.eyJ1IjoiamVmZnJleXNmb3JkMiIsImEiOiJja29wb3VpNG8wand3MzFtcHRjb3FyNjdwIn0.sAo5P5XmFNddaSbXQEp4qg"
 
 function Map(props) {
@@ -12,7 +12,19 @@ function Map(props) {
         zoom: 11
 
     });
+    const [selectedBrewery, setSelectedBrewery] = useState(null);
 
+    useEffect(() => {
+        const listener = e => {
+            if (e.key === 'Escape') {
+                setSelectedBrewery(null)
+            }
+        };
+        window.addEventListener('keydown', listener);
+        return () => {
+            window.removeEventListener('keydown', listener);
+        }
+    }, [])
 
     return (
         <ReactMapGL
@@ -23,9 +35,29 @@ function Map(props) {
         >
             {props.breweries.map(brewery => (
                 <Marker key={brewery.place_id} latitude={brewery.geometry.location.lat} longitude={brewery.geometry.location.lng}>
-                    <div>{brewery.name}</div>
+                    <button className='marker-btn' onClick={(e) => {
+                        e.preventDefault();
+                        setSelectedBrewery(brewery)
+                    }}>
+                        Beer
+                    </button>
                 </Marker>
             ))}
+            {selectedBrewery ? (
+                <Popup
+                    latitude={selectedBrewery.geometry.location.lat}
+                    longitude={selectedBrewery.geometry.location.lng}
+                    onClose={() => {
+                        setSelectedBrewery(null)
+                    }}
+                >
+                    <div>
+                        <h3>{selectedBrewery.name}</h3>
+                    </div>
+                </Popup>
+            ) : null}
+
+
         </ReactMapGL>
     );
 }

@@ -256,7 +256,7 @@ function App() {
       </div>
 
       <Map
-        breweries={breweries}
+        breweries={filteredAndSortedBreweries}
       />
 
       <div className="brewery-info-container">
