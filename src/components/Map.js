@@ -4,8 +4,9 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 const MAP_TOKEN = "pk.eyJ1IjoiamVmZnJleXNmb3JkMiIsImEiOiJja29wb3VpNG8wand3MzFtcHRjb3FyNjdwIn0.sAo5P5XmFNddaSbXQEp4qg"
 
 function Map(props) {
+
     const [viewport, setViewport] = useState({
-        width: '600px',
+        width: '30vw',
         height: '100vh',
         latitude: 39.4143,
         longitude: -77.4105,
@@ -25,6 +26,9 @@ function Map(props) {
             window.removeEventListener('keydown', listener);
         }
     }, [])
+
+
+
 
     return (
         <ReactMapGL

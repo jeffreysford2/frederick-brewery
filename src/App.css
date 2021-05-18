@@ -79,7 +79,19 @@ button:hover {
 .brewery-info-container {
   justify-content: center;
   flex-direction: column;
-  width: 60%;
+  width: 70%;
   align-content: left;
   /* Width Originally not specified */
+}
+
+@media (max-width: 800px) {
+  .results-container {
+    flex-direction: column;
+  }
+  .brewery-info-container {
+    width: 100%;
+  }
+  .map-container {
+    display: none;
+  }
 }
