@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
+import './Map.css'
 const MAP_TOKEN = "pk.eyJ1IjoiamVmZnJleXNmb3JkMiIsImEiOiJja29wb3VpNG8wand3MzFtcHRjb3FyNjdwIn0.sAo5P5XmFNddaSbXQEp4qg"
 
 function Map(props) {
@@ -20,7 +21,7 @@ function Map(props) {
 
     }, []);
 
-    console.log("give width", width);
+    //console.log("give width", width);
 
 
     const [viewport, setViewport] = useState({
@@ -67,12 +68,12 @@ function Map(props) {
         >
             {props.breweries.map(brewery => (
                 <Marker key={brewery.place_id} latitude={brewery.geometry.location.lat} longitude={brewery.geometry.location.lng}>
-                    <button className='marker-btn' onClick={(e) => {
+
+                    <img src={process.env.PUBLIC_URL + '/beer-15.svg'} alt="beer-image" className='marker-btn' onClick={(e) => {
                         e.preventDefault();
                         setSelectedBrewery(brewery)
-                    }}>
-                        Beer
-                    </button>
+                    }} />
+
                 </Marker>
             ))}
             {selectedBrewery ? (
@@ -84,7 +85,8 @@ function Map(props) {
                     }}
                 >
                     <div>
-                        <h3>{selectedBrewery.name}</h3>
+                        <b>{selectedBrewery.name}</b>
+                        <p>Rating: {selectedBrewery.rating}</p>
                     </div>
                 </Popup>
             ) : null}
