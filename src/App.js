@@ -132,7 +132,6 @@ function App() {
 
   const location = GeoLocation()
 
-  console.log(currentHover)
 
   useEffect(() => {
     axios
@@ -240,7 +239,7 @@ function App() {
   }
 
   const filteredAndSortedBreweries = filteredBreweries.sort(compareValues(column, direction))
-  console.log(breweries)
+
 
 
 

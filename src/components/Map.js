@@ -12,7 +12,6 @@ function Map(props) {
         const updateWindowDimensions = () => {
             const newWidth = window.innerWidth;
             setWidth(newWidth);
-            console.log("updating width");
         };
 
         window.addEventListener("resize", updateWindowDimensions);
@@ -21,7 +20,6 @@ function Map(props) {
 
     }, []);
 
-    //console.log("give width", width);
 
 
     const [viewport, setViewport] = useState({
@@ -56,7 +54,15 @@ function Map(props) {
         }
     }, [])
 
-    console.log(props.currentHover)
+    const allBreweries = props.breweries
+    useEffect(() => {
+        setSelectedBrewery(null)
+        for (let brewery of allBreweries) {
+            if (brewery.name.toUpperCase() === props.currentHover.toUpperCase()) {
+                setSelectedBrewery(brewery)
+            }
+        }
+    }, [props.currentHover])
     //need to somehow get marker data to show up on hover.
     //Right now currentHover just shows the name of the brewery
     //Maybe useEffect to setSelectedBrewery when currentHover is one of the breweries

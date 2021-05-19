@@ -29,6 +29,10 @@
   /* Width originally 900px */
 }
 
+.brewery-row:hover {
+  cursor: pointer;
+}
+
 .brewery-header-row {
   display: flex;
   flex-direction: row;
