@@ -115,13 +115,13 @@ const socialMedia = {
 }
 
 function App() {
-  const [viewport, setViewport] = useState({
-    latitude: 39.414,
-    longitude: -77.410,
-    width: "800px",
-    height: "800px",
-    zoom: 8
-  });
+  // const [viewport, setViewport] = useState({
+  //   latitude: 39.414,
+  //   longitude: -77.410,
+  //   width: "800px",
+  //   height: "800px",
+  //   zoom: 8
+  // });
   const [breweries, setBreweries] = useState([]);
   const [search, setSearch] = useState('')
   const [[column, direction], setSort] = useState(['name', 'asc'])

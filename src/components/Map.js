@@ -5,8 +5,26 @@ const MAP_TOKEN = "pk.eyJ1IjoiamVmZnJleXNmb3JkMiIsImEiOiJja29wb3VpNG8wand3MzFtcH
 
 function Map(props) {
 
+    const [width, setWidth] = useState(0);
+
+    useEffect(() => {
+        const updateWindowDimensions = () => {
+            const newWidth = window.innerWidth;
+            setWidth(newWidth);
+            console.log("updating width");
+        };
+
+        window.addEventListener("resize", updateWindowDimensions);
+
+        return () => window.removeEventListener("resize", updateWindowDimensions)
+
+    }, []);
+
+    console.log("give width", width);
+
+
     const [viewport, setViewport] = useState({
-        width: '30vw',
+        width: '100%',
         height: '100vh',
         latitude: 39.4143,
         longitude: -77.4105,
@@ -14,6 +32,16 @@ function Map(props) {
 
     });
     const [selectedBrewery, setSelectedBrewery] = useState(null);
+
+    useEffect(() => {
+        setViewport({
+            width: '100%',
+            height: '100vh',
+            latitude: 39.4143,
+            longitude: -77.4105,
+            zoom: 11
+        })
+    }, [width])
 
     useEffect(() => {
         const listener = e => {

@@ -69,6 +69,7 @@ button:hover {
   position: sticky;
   top: 0px;
   height: 100vh;
+  width: 50%;
 }
 
 .sticky {
@@ -79,19 +80,19 @@ button:hover {
 .brewery-info-container {
   justify-content: center;
   flex-direction: column;
-  width: 70%;
+  width: 50%;
   align-content: left;
   /* Width Originally not specified */
 }
 
 @media (max-width: 800px) {
-  .results-container {
+  /* .results-container {
     flex-direction: column;
-  }
-  .brewery-info-container {
+  } */
+  /* .brewery-info-container {
     width: 100%;
-  }
-  .map-container {
+  } */
+  /* .map-container {
     display: none;
-  }
+  } */
 }
