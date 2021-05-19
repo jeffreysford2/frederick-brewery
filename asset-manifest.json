@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/frederick-brewery/static/css/main.04f607a6.chunk.css",
-    "main.js": "/frederick-brewery/static/js/main.259505b5.chunk.js",
-    "main.js.map": "/frederick-brewery/static/js/main.259505b5.chunk.js.map",
+    "main.css": "/frederick-brewery/static/css/main.bb0a1d1c.chunk.css",
+    "main.js": "/frederick-brewery/static/js/main.89c04956.chunk.js",
+    "main.js.map": "/frederick-brewery/static/js/main.89c04956.chunk.js.map",
     "runtime-main.js": "/frederick-brewery/static/js/runtime-main.7db62815.js",
     "runtime-main.js.map": "/frederick-brewery/static/js/runtime-main.7db62815.js.map",
-    "static/js/2.65c66af9.chunk.js": "/frederick-brewery/static/js/2.65c66af9.chunk.js",
-    "static/js/2.65c66af9.chunk.js.map": "/frederick-brewery/static/js/2.65c66af9.chunk.js.map",
+    "static/js/2.ffedf07b.chunk.js": "/frederick-brewery/static/js/2.ffedf07b.chunk.js",
+    "static/js/2.ffedf07b.chunk.js.map": "/frederick-brewery/static/js/2.ffedf07b.chunk.js.map",
     "index.html": "/frederick-brewery/index.html",
-    "static/css/main.04f607a6.chunk.css.map": "/frederick-brewery/static/css/main.04f607a6.chunk.css.map",
-    "static/js/2.65c66af9.chunk.js.LICENSE.txt": "/frederick-brewery/static/js/2.65c66af9.chunk.js.LICENSE.txt"
+    "static/css/main.bb0a1d1c.chunk.css.map": "/frederick-brewery/static/css/main.bb0a1d1c.chunk.css.map",
+    "static/js/2.ffedf07b.chunk.js.LICENSE.txt": "/frederick-brewery/static/js/2.ffedf07b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7db62815.js",
-    "static/js/2.65c66af9.chunk.js",
-    "static/css/main.04f607a6.chunk.css",
-    "static/js/main.259505b5.chunk.js"
+    "static/js/2.ffedf07b.chunk.js",
+    "static/css/main.bb0a1d1c.chunk.css",
+    "static/js/main.89c04956.chunk.js"
   ]
 }
