@@ -125,12 +125,14 @@ function App() {
   const [breweries, setBreweries] = useState([]);
   const [search, setSearch] = useState('')
   const [[column, direction], setSort] = useState(['name', 'asc'])
+  const [currentHover, setCurrentHover] = useState(null)
   // const [location, setLocation] = useState('');
 
   // setLocation(GeoLocation())
 
   const location = GeoLocation()
 
+  console.log(currentHover)
 
   useEffect(() => {
     axios
@@ -272,6 +274,7 @@ function App() {
                   website={brewery.website}
                   phoneNumber={brewery.phoneNumber}
                   location={brewery.geometry.location.lat}
+                  setCurrentHover={setCurrentHover}
                 // socialMedia={socialMedia.brewery.place_id}
                 />
               )
@@ -281,6 +284,7 @@ function App() {
         <div className="map-container">
           <Map
             breweries={filteredAndSortedBreweries}
+            currentHover={currentHover}
           />
         </div>
       </div>

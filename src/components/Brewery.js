@@ -9,9 +9,14 @@ const Brewery = (props) => {
         return null
     }
 
+    const handleHover = (e) => {
+        props.setCurrentHover(props.name)
+        // console.log(props.currentHover)
+    }
+
     return (
         <div className="brewery-container">
-            <div className="brewery-row">
+            <div className="brewery-row" onMouseEnter={() => handleHover()}>
                 <div className="brewery">
                     <h1>{props.name}</h1>
                 </div>

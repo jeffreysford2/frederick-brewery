@@ -56,7 +56,10 @@ function Map(props) {
         }
     }, [])
 
-
+    console.log(props.currentHover)
+    //need to somehow get marker data to show up on hover.
+    //Right now currentHover just shows the name of the brewery
+    //Maybe useEffect to setSelectedBrewery when currentHover is one of the breweries
 
 
     return (
@@ -68,12 +71,13 @@ function Map(props) {
         >
             {props.breweries.map(brewery => (
                 <Marker key={brewery.place_id} latitude={brewery.geometry.location.lat} longitude={brewery.geometry.location.lng}>
-
                     <img src={process.env.PUBLIC_URL + '/beer-15.svg'} alt="beer-image" className='marker-btn' onClick={(e) => {
                         e.preventDefault();
                         setSelectedBrewery(brewery)
                     }} />
-
+                    {/* {brewery.name === props.currentHover ? (
+                        setSelectedBrewery(brewery)
+                    ) : null} */}
                 </Marker>
             ))}
             {selectedBrewery ? (
