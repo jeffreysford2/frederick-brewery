@@ -4,25 +4,20 @@ const BreweryHeader = (props) => {
 
     const handleClickNameDesc = (e) => {
         e.preventDefault()
-        console.log('clicked')
         props.setSort(['name', 'desc'])
     }
     const handleClickNameAsc = (e) => {
         e.preventDefault()
-        console.log('clicked')
         props.setSort(['name', 'asc'])
     }
     const handleClickOpen = (e) => {
         e.preventDefault()
-        console.log('clicked open')
         props.setSort(['breweryOpen', 'desc'])
     }
     const handleClickRating = (e) => {
         e.preventDefault()
-        console.log('clicked')
         props.setSort(['rating', 'desc'])
     }
-
 
     return (
         <div className="brewery-container" id="header">
