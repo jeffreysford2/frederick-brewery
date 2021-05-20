@@ -1,3 +1,6 @@
 img:hover {
   cursor: pointer;
 }
+popup {
+  border: 1px solid red;
+}

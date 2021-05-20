@@ -33,9 +33,9 @@ function Map(props) {
     const [viewport, setViewport] = useState({
         width: '100%',
         height: '100vh',
-        latitude: 39.4143,
-        longitude: -77.4105,
-        zoom: 11
+        latitude: 39.40,
+        longitude: -77.4155,
+        zoom: 12
 
     });
     const [selectedBrewery, setSelectedBrewery] = useState(null);
@@ -44,9 +44,9 @@ function Map(props) {
         setViewport({
             width: '100%',
             height: '100vh',
-            latitude: 39.4143,
-            longitude: -77.4105,
-            zoom: 11
+            latitude: 39.40,
+            longitude: -77.4155,
+            zoom: 12
         })
     }, [width])
 
@@ -104,7 +104,7 @@ function Map(props) {
                         setSelectedBrewery(null)
                     }}
                 >
-                    <div>
+                    <div className="popup">
                         <b>{selectedBrewery.name}</b>
                         <p>Rating: {selectedBrewery.rating}</p>
                     </div>
