@@ -148,48 +148,18 @@ function App() {
 
   for (let i = 0; i < breweries.length; i++) {
     let breweryId = breweries[i].place_id
+    console.log(breweries[i])
     if (socialMedia[breweryId]) {
       breweries[i].instagram = socialMedia[breweryId].instagram
       breweries[i].facebook = socialMedia[breweryId].facebook
-
+    }
+    if (breweries[i].opening_hours !== undefined) {
+      breweries[i].breweryOpen = breweries[i].opening_hours.open_now;
+    } else {
+      breweries[i].breweryOpen = false;
     }
 
-    // if (breweryId === 'ChIJdXekOBE1yIkRqM3b7TNZ3CU') {
-    //   breweries[i].opening_hours.open_now = true;
-    //   console.log(breweries[i].opening_hours.open_now)
-    // }
-
-    // if (location === undefined) {
-
-    // } else {
-    //   breweries[i].distance = getDistanceFromLatLonInMi(
-    //     breweries[i].geometrygeometry.location.lat,
-    //     breweries[i].geometrygeometry.location.lat,
-    //     JSON.stringify(location).coordinates.lat,
-    //     JSON.stringify(location).coordinates.lng
-    //   )
-    // }
-
   }
-  // useEffect(() => {
-  //   console.log('in effect')
-  //   for (let i = 0; i < breweries.length; i++) {
-
-  //     console.log('hi', location.coordinates.lat)
-  //     console.log('location:', location)
-
-
-
-  //     breweries[i].distance = getDistanceFromLatLonInMi(
-  //       breweries[i].geometry.location.lat,
-  //       breweries[i].geometry.location.lng,
-  //       JSON.stringify(location).coordinates.lat,
-  //       JSON.stringify(location).coordinates.lng
-  //     )
-  //     console.log('changed!!!!', breweries[i].distance)
-  //   }
-
-  // }, [location])
 
   let filteredBreweries = breweries.filter(brewery => (
     brewery.name.toLowerCase().includes(search.toLowerCase())
@@ -219,29 +189,7 @@ function App() {
     };
   }
 
-  function getDistanceFromLatLonInMi(lat1, lon1, lat2, lon2) {
-    console.log('in formula')
-    var R = 6371; // Radius of the earth in km
-    var dLat = deg2rad(lat2 - lat1);  // deg2rad below
-    var dLon = deg2rad(lon2 - lon1);
-    var a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-      Math.sin(dLon / 2) * Math.sin(dLon / 2)
-      ;
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    var d = R * c * 0.621371; // Distance in miles
-    return d;
-  }
-
-  function deg2rad(deg) {
-    return deg * (Math.PI / 180)
-  }
-
   const filteredAndSortedBreweries = filteredBreweries.sort(compareValues(column, direction))
-
-
-
 
   return (
 
@@ -267,7 +215,7 @@ function App() {
                   address={brewery.vicinity}
                   rating={brewery.rating}
                   user_ratings_total={brewery.user_ratings_total}
-                  open_now={brewery.opening_hours}
+                  open_now={brewery.breweryOpen}
                   instagram={brewery.instagram}
                   facebook={brewery.facebook}
                   website={brewery.website}

@@ -15,7 +15,7 @@ const BreweryHeader = (props) => {
     const handleClickOpen = (e) => {
         e.preventDefault()
         console.log('clicked open')
-        props.setSort(['opening_hours.open_now', 'desc'])
+        props.setSort(['breweryOpen', 'desc'])
     }
     const handleClickRating = (e) => {
         e.preventDefault()

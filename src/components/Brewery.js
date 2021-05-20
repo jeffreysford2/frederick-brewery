@@ -1,10 +1,10 @@
 
 import './Brewery.css'
 const Brewery = (props) => {
-
+    console.log(props.open_now)
     const isOpen = () => {
         if (props.open_now) {
-            return props.open_now.open_now
+            return props.open_now
         }
         return null
     }
