@@ -1,7 +1,15 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
+import 'mapbox-gl/dist/mapbox-gl.css';
+import mapboxgl from 'mapbox-gl';
 import './Map.css'
+// @ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+
+
+
 const MAP_TOKEN = "pk.eyJ1IjoiamVmZnJleXNmb3JkMiIsImEiOiJja29wb3VpNG8wand3MzFtcHRjb3FyNjdwIn0.sAo5P5XmFNddaSbXQEp4qg"
 
 function Map(props) {
@@ -58,8 +66,10 @@ function Map(props) {
     useEffect(() => {
         setSelectedBrewery(null)
         for (let brewery of allBreweries) {
-            if (brewery.name.toUpperCase() === props.currentHover.toUpperCase()) {
-                setSelectedBrewery(brewery)
+            if (brewery.name !== null && props.currentHover !== null) {
+                if (brewery.name.toUpperCase() === props.currentHover.toUpperCase()) {
+                    setSelectedBrewery(brewery)
+                }
             }
         }
     }, [props.currentHover])
