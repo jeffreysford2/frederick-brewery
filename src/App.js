@@ -148,7 +148,6 @@ function App() {
 
   for (let i = 0; i < breweries.length; i++) {
     let breweryId = breweries[i].place_id
-    console.log(breweries[i])
     if (socialMedia[breweryId]) {
       breweries[i].instagram = socialMedia[breweryId].instagram
       breweries[i].facebook = socialMedia[breweryId].facebook

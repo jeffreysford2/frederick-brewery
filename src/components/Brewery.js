@@ -1,7 +1,6 @@
 
 import './Brewery.css'
 const Brewery = (props) => {
-    console.log(props.open_now)
     const isOpen = () => {
         if (props.open_now) {
             return props.open_now
@@ -11,7 +10,6 @@ const Brewery = (props) => {
 
     const handleHover = (e) => {
         props.setCurrentHover(props.name)
-        // console.log(props.currentHover)
     }
 
     return (
