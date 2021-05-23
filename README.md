@@ -4,15 +4,15 @@ A react application to view, sort, and search through the up-and-coming brewery 
 
 ### Application screenshot:
 
-![screenshot1](./public/image1.png | width=200)
+![screenshot1](./public/image1.png)
 
-### Screenshot of searching "at":
+### Screenshot of searching "at", which results in showing two breweries (Attaboy Beer & Attaboy Barrel House):
 
-![screenshot2](./public/image2.png | width=200)
+![screenshot2](./public/image2.png)
 
 ### Screenshot of application viewed in a narrow window (similar to iPad):
 
-![screenshot3](./public/image3.png| width=200)
+![screenshot3](./public/image3.png)
 
 ## Summary
 
