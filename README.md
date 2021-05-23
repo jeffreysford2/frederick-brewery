@@ -2,9 +2,9 @@
 
 A react application to view, sort, and search through the up-and-coming brewery scene in Frederick, Maryland.
 
-![screenshot](image1.png)
-![screenshot](/image2.png)
-![screenshot](./image3.png)
+![screenshot](./public/image1.png)
+![screenshot](./public/image2.png)
+![screenshot](./public/image3.png)
 
 # Getting Started with Create React App
 
