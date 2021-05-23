@@ -1,3 +1,11 @@
+# Frederick Breweries (React)
+
+A react application to view, sort, and search through the up-and-coming brewery scene in Frederick, Maryland.
+
+![alt text](assets/Image 1.png)
+![alt text](assets/Image 2.png)
+![alt text](assets/Image 3.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
