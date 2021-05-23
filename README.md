@@ -2,9 +2,31 @@
 
 A react application to view, sort, and search through the up-and-coming brewery scene in Frederick, Maryland.
 
-![screenshot](./public/image1.png)
-![screenshot](./public/image2.png)
-![screenshot](./public/image3.png)
+### Application screenshot:
+
+![screenshot1](./public/image1.png | width=200)
+
+### Screenshot of searching "at":
+
+![screenshot2](./public/image2.png | width=200)
+
+### Screenshot of application viewed in a narrow window (similar to iPad):
+
+![screenshot3](./public/image3.png| width=200)
+
+## Summary
+
+- Application shows Frederick Breweries within a reasonable distance to downtown.
+- The reactive map responds when cursor hovers over brewery in table.
+- When searching, both the table and the map respond reactively to show only breweries with a string of characters typed in the search bar.
+- Application uses Google Places API to fetch the brewery information and displays on the map via Mapbox.
+- While the table and map are side by side, both scale down reactively when the width of the screen shrinks.
+
+## Reflection
+
+- This application was a great learning experience with React.
+- useEffect and useState are used frequently within the application.
+- Application was a great way to practice using several components all on one page, sending and receiving props.
 
 # Getting Started with Create React App
 
